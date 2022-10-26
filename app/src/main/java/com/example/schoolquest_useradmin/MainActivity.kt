@@ -4,13 +4,16 @@ import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.View.inflate
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.resources.Compatibility.Api21Impl.inflate
 import androidx.core.content.res.ColorStateListInflaterCompat.inflate
 import com.example.schoolquest_useradmin.R.style.Theme_SchoolQuest_UserAdmin
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -53,10 +56,12 @@ class MainActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
+                    Snackbar.make(this.findViewById(android.R.id.content), "Autentication failed.", Snackbar.LENGTH_SHORT)
+                        .show()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }

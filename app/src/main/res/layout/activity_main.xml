@@ -124,6 +124,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:cornerRadius="30dp"/>
 
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
