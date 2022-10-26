@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SchoolQuest_UserAdmin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/OrangeLight</item>
+        <item name="colorPrimaryVariant">@color/Grey</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/BlueDark</item>
+        <item name="colorSecondaryVariant">@color/BlueDarker</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorAccent">@color/BlueLight</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="SplashScreen" parent="Theme.SchoolQuest_UserAdmin">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+
+</resources>

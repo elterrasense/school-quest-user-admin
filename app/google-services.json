@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1086077724469",
+    "project_id": "school-quest-a9437",
+    "storage_bucket": "school-quest-a9437.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086077724469:android:456330a9103dda03fd4e7c",
+        "android_client_info": {
+          "package_name": "com.example.schoolquest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086077724469-tqgsicsgns3so5k9b716gbj9rmaa6990.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS6T0BkxDoxcM36tz4II4HMvsNpc6vyRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086077724469-tqgsicsgns3so5k9b716gbj9rmaa6990.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086077724469:android:8d0b9d352f7c832bfd4e7c",
+        "android_client_info": {
+          "package_name": "com.example.schoolquest_useradmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086077724469-tqgsicsgns3so5k9b716gbj9rmaa6990.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS6T0BkxDoxcM36tz4II4HMvsNpc6vyRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086077724469-tqgsicsgns3so5k9b716gbj9rmaa6990.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

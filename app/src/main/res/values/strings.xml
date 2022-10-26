@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SchoolQuest_UserAdmin</string>
+    <string name="login">login</string>
+    <string name="contrasenya">contrasenya</string>
+    <string name="email">email</string>
+    <string name="registrar">Registrar</string>
+</resources>
