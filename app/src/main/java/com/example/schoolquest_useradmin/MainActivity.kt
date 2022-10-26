@@ -1,17 +1,12 @@
 package com.example.schoolquest_useradmin
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.View.inflate
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.resources.Compatibility.Api21Impl.inflate
-import androidx.core.content.res.ColorStateListInflaterCompat.inflate
+import androidx.appcompat.app.AppCompatActivity
 import com.example.schoolquest_useradmin.R.style.Theme_SchoolQuest_UserAdmin
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -40,12 +35,33 @@ class MainActivity : AppCompatActivity() {
             val password1: String = findViewById<TextInputEditText>(R.id.inputPassword).text.toString()
             val password2: String = findViewById<TextInputEditText>(R.id.inputRepeatPassword).text.toString()
 
-            if (password1==password2)
-            crearUsuari(email, password2)
-
-
+            //Verificar format del correu
+            val pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`\\{|\\}~]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*\$".toRegex()
+            if (pattern.containsMatchIn(email)) {
+                //Verificar que les contrasenyes coincideixin i no siguin vuides
+                when (password1) {
+                    "" -> {
+                        dialogBuilder("Error", "La contrasenya no pot ser vuida")
+                    }
+                    password2 -> {
+                        crearUsuari(email, password2)
+                    }
+                    else -> {
+                        dialogBuilder("Error", "Les contrasenyes no coincideixen")
+                    }
+                }
+            } else {
+                dialogBuilder("Error", "El correu no te un format válid")
+            }
         }
+    }
 
+    private fun dialogBuilder(tittle: String, message: String) {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(tittle)
+            .setMessage(message)
+            .create()
+        dialog.show()
     }
 
     private fun crearUsuari(email: String, password: String) {
@@ -56,12 +72,12 @@ class MainActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    Snackbar.make(this.findViewById(android.R.id.content), "Autentication failed.", Snackbar.LENGTH_SHORT)
-                        .show()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
 //                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(this.findViewById(android.R.id.content), "Error d'autenticacio.", 5000)
+                        .show()
                 }
             }
     }
