@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = Firebase.auth
-       val btEnviar = findViewById<Button>(R.id.ButtonResgisterAlumne1)
+        val btEnviar = findViewById<Button>(R.id.ButtonResgisterAlumne1)
 
         btEnviar.setOnClickListener{
             val email : String = findViewById<TextInputEditText>(R.id.inputEmail).text.toString()
