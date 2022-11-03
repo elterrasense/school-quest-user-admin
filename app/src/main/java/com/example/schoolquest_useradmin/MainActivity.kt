@@ -37,9 +37,10 @@ class MainActivity : AppCompatActivity() {
             val password1: String = findViewById<TextInputEditText>(R.id.inputPassword).text.toString()
             val password2: String = findViewById<TextInputEditText>(R.id.inputRepeatPassword).text.toString()
 
-            if (password1==password2)
+            if (password1==password2){
             crearUsuari(email, password2)
-            TODO("else con manejador de errores, snackbar...")
+            }
+
         }
 
     }
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                    //val a=task.
                     Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }
