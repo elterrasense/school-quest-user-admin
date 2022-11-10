@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.schoolquest_useradmin.R.style.Theme_SchoolQuest_UserAdmin
+import com.example.schoolquest_useradmin.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -19,21 +20,25 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(Theme_SchoolQuest_UserAdmin)
         supportActionBar?.hide()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = Firebase.auth
-        val btEnviar = findViewById<Button>(R.id.ButtonResgisterAlumne1)
+        //val btEnviar = findViewById<Button>(R.id.ButtonResgisterAlumne1)
 
-        btEnviar.setOnClickListener{
-            val email : String = findViewById<TextInputEditText>(R.id.inputEmail).text.toString()
-            val password1: String = findViewById<TextInputEditText>(R.id.inputPassword).text.toString()
-            val password2: String = findViewById<TextInputEditText>(R.id.inputRepeatPassword).text.toString()
+        binding.ButtonResgisterAlumne1.setOnClickListener{
+            val email : String =
+                binding.inputEmail.text.toString()//findViewById<TextInputEditText>(R.id.inputEmail).text.toString()
+            val password1: String =
+                binding.inputPassword.text.toString()//findViewById<TextInputEditText>(R.id.inputPassword).text.toString()
+            val password2: String =
+                binding.inputRepeatPassword.text.toString()//findViewById<TextInputEditText>(R.id.inputRepeatPassword).text.toString()
 
             //Verificar format del correu
             val pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`\\{|\\}~]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*\$".toRegex()
@@ -68,15 +73,15 @@ class MainActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
-                    // Sign in success, update UI with the signed-in user's information
+                    //Usuari creat correctament
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
+                    Snackbar.make(binding.root, "Usuari creat correctament.", 5000)
+                        .show()
                 } else {
-                    // If sign in fails, display a message to the user.
+                    //Error creant l'usuari
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-//                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                    Snackbar.make(this.findViewById(android.R.id.content), "Error d'autenticacio.", 5000)
+                    Snackbar.make(binding.root, "Error de connexió.", 5000)
                         .show()
                 }
             }
