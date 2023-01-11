@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import com.example.schoolquest_useradmin.databinding.ActivityProfessorBinding
+import com.example.schoolquest_useradmin.databinding.ActivityStudentsBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -23,15 +25,16 @@ class Students : AppCompatActivity() {
         setTheme(R.style.Theme_SchoolQuest_UserAdmin)
         supportActionBar?.hide()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_students)
+        val binding = ActivityStudentsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = Firebase.auth
-        val btEnviar = findViewById<Button>(R.id.ButtonResgisterAlumne1)
+        val btEnviar = binding.ButtonResgisterAlumne1
 
         btEnviar.setOnClickListener{
-            val email : String = findViewById<TextInputEditText>(R.id.inputEmail).text.toString()
-            val password1: String = findViewById<TextInputEditText>(R.id.inputPassword).text.toString()
-            val password2: String = findViewById<TextInputEditText>(R.id.inputRepeatPassword).text.toString()
+            val email : String = binding.inputEmail.text.toString()
+            val password1: String = binding.inputPassword.text.toString()
+            val password2: String = binding.inputRepeatPassword.text.toString()
 
             //Verificar format del correu
             val pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`\\{|\\}~]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*\$".toRegex()
