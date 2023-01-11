@@ -140,16 +140,55 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ButtonResgisterProfessor1"
+                    android:id="@+id/ButtonResgisterProfessor"
                     style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="120sp"
+                    android:layout_width="130sp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:layout_gravity="center"
                     android:text="@string/registrar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:cornerRadius="30dp"/>
+                    app:cornerRadius="30dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ButtonRecuperarProfessor"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="130sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:text="Recuperar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:cornerRadius="30dp"
+                    android:backgroundTint="@color/BlueDark"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ButtonEditarProfessor"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="130sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:text="Editar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:cornerRadius="30dp"
+                    android:backgroundTint="@color/BlueDarker"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ButtonEliminarProfessor"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="130sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:text="Eliminar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:cornerRadius="30dp"
+                    android:backgroundTint="#d32f2f"/>
 
             </LinearLayout>
         </LinearLayout>
