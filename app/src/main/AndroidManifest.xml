@@ -12,7 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolQuest_UserAdmin"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Professor"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Students"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
