@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Registar nou usuari:"
+                android:hint="Registar nou alumne:"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="@color/BlueDark">
 
@@ -131,7 +131,7 @@
                 app:counterMaxLength="10">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputSurame1"
+                    android:id="@+id/inputSurname1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
@@ -161,18 +161,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                app:boxCornerRadiusTopStart="30dp"
-                app:boxCornerRadiusTopEnd="30dp"
-                app:boxCornerRadiusBottomStart="30dp"
-                app:boxCornerRadiusBottomEnd="30dp"
-
-                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -191,44 +179,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:cornerRadius="30dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ButtonRecuperarAlumne1"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="130sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center"
-                    android:text="Recuperar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:cornerRadius="30dp"
-                    android:backgroundTint="@color/BlueDark"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ButtonEditarAlumne1"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="130sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center"
-                    android:text="Editar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:cornerRadius="30dp"
-                    android:backgroundTint="@color/BlueDarker"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ButtonEliminarAlumne1"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="130sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center"
-                    android:text="Eliminar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:cornerRadius="30dp"
-                    android:backgroundTint="#d32f2f"/>
 
             </LinearLayout>
         </LinearLayout>

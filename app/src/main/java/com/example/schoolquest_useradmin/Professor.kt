@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import java.util.UUID
 
 class Professor : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
@@ -31,9 +32,9 @@ class Professor : AppCompatActivity() {
         val btEnviar = binding.ButtonResgisterProfessor
 
         btEnviar.setOnClickListener{
-            val email : String = binding.inputEmail.text.toString()
-            val password1: String = binding.inputPassword.text.toString()
-            val password2: String = binding.inputRepeatPassword.text.toString()
+            val email : String = binding.inputEmailP.text.toString()
+            val password1: String = binding.inputPasswordP.text.toString()
+            val password2: String = binding.inputRepeatPasswordP.text.toString()
 
             //Verificar format del correu
             val pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`\\{|\\}~]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*\$".toRegex()
@@ -44,7 +45,9 @@ class Professor : AppCompatActivity() {
                         dialogBuilder("Error", "La contrasenya no pot ser vuida")
                     }
                     password2 -> {
-                        crearUsuari(email, password2)
+                        crearUsuari(email, password2, binding)
+                        //creacio d'usuari a la bbdd
+
                     }
                     else -> {
                         dialogBuilder("Error", "Les contrasenyes no coincideixen")
@@ -64,7 +67,7 @@ class Professor : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun crearUsuari(email: String, password: String) {
+    private fun crearUsuari(email: String, password: String, binding: ActivityProfessorBinding) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -72,6 +75,13 @@ class Professor : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
+
+                    db.collection("Professors").document(auth.uid.toString()).set(
+                        hashMapOf("User" to binding.inputEmailP.text.toString(),
+                            "Name" to binding.inputNameP.text.toString(),
+                            "Surname1" to binding.inputSurname1P.text.toString(),
+                            "Surname2" to binding.inputSurname2P.text.toString())
+                    )
 
                 } else {
                     // If sign in fails, display a message to the user.

@@ -5,11 +5,8 @@ import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import com.example.schoolquest_useradmin.databinding.ActivityProfessorBinding
 import com.example.schoolquest_useradmin.databinding.ActivityStudentsBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -45,7 +42,7 @@ class Students : AppCompatActivity() {
                         dialogBuilder("Error", "La contrasenya no pot ser vuida")
                     }
                     password2 -> {
-                        crearUsuari(email, password2)
+                        crearUsuari(email, password2, binding)
                     }
                     else -> {
                         dialogBuilder("Error", "Les contrasenyes no coincideixen")
@@ -65,7 +62,7 @@ class Students : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun crearUsuari(email: String, password: String) {
+    private fun crearUsuari(email: String, password: String, binding: ActivityStudentsBinding) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -74,11 +71,18 @@ class Students : AppCompatActivity() {
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
 
+                    db.collection("Students").document(auth.uid.toString()).set(
+                        hashMapOf("User" to binding.inputEmail.text.toString(),
+                            "Name" to binding.inputName.text.toString(),
+                            "Surname1" to binding.inputSurname1.text.toString(),
+                            "Surname2" to binding.inputSurname2.text.toString())
+                    )
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
 //                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                    Snackbar.make(this.findViewById(android.R.id.content), "Error d'autenticacio.", 5000)
+                    Snackbar.make(this.findViewById(android.R.id.content), "Error d'autenticació.", 5000)
                         .show()
                 }
             }
